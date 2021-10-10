@@ -1,5 +1,7 @@
 package com.cos.navernewsapp.domain;
 
+import java.sql.Timestamp;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,5 +19,5 @@ public class NaverRealtime {
 	
 	private String company;
 	private String title;
-	private String createdAt;
+	private Timestamp createdAt;
 }
