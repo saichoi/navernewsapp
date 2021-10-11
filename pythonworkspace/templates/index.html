@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>네이버 뉴스 리스트</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+       header,footer{
+            width: 100%; 
+            height:100px; 
+            background-color: #17CE5F; 
+            text-align:center; 
+            line-height:100px; 
+            color: #fff;
+            font-size: xx-large;
+        }
+        .m_box {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .m_tm_20 {
+            margin-top: 20px;
+        }
+
+        .card:hover{
+            background-color: rgba(0,0,0,0.3);
+            color:#fff;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="margin-bottom: 100px;">네이버 신문 기사</header>
+
+    <div class="container m_box m_tm_20">
+
+   
+      {% for naverRealtime in naverRealtimeList %}
+
+       <h3>{{naverRealtime.createdAt}} 신문기사</h3>
+      
+        <!-- 신문 카드 시작 -->
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{naverRealtime.title}}</h4>
+                <p class="card-text">{{naverRealtime.createdAt}}</p>
+                <p class="card-text" style="text-align:right;">{{naverRealtime.company}}</p>
+            </div>
+        </div>
+        <!-- 신문 카드 끝 -->
+        {% endfor %}
+
+    </div>
+
+    <footer style="margin-top: 100px;"></footer>
+
+    <script>
+        function myPolling(){
+            location.reload();
+        }
+
+        setInterval(myPolling, 1000*60); 
+
+    </script>
+
+</body>
+
+</html>
