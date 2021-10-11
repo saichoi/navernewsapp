@@ -55,8 +55,7 @@ public class NaverCrawTest {
 //			System.out.println(title);
 //			System.out.println(createdAt);
 
-//			articles.add(naverRealtime); // null 일 때 try ~ catch 처리해야함
-
+//			articles.add(naverRealtime); 
 			aidNum++;
 			// } catch (IOException e) {
 			// e.printStackTrace();
@@ -71,7 +70,7 @@ public class NaverCrawTest {
 		List<NaverRealtime> realtimeList = new ArrayList<>();
 
 		// 스크랩할 기사 기준 시간 (하루전)
-		LocalDateTime date = LocalDateTime.now().minusDays(1).plusHours(9); //하루전 날짜와 시간
+		LocalDateTime date = LocalDateTime.now().minusDays(2).plusHours(9); //하루전 날짜와 시간
 		Timestamp tsDate = Timestamp.valueOf(date); //시간을 타임스탬프 타입으로 변환 
 		String strDate = tsDate.toString(); // 타임스탬프 타입을 스트링으로 변환 -> 날짜 비교
 		String parseDate = strDate.substring(0,10); // 스크랩할 기사의 날짜를 년월일 까지만
@@ -113,7 +112,6 @@ public class NaverCrawTest {
 					System.out.println(naverRealtime);
 					
 				} else {
-					aidNum = aidNum+1;
 					System.out.println(aidNum);
 					break;
 				}
